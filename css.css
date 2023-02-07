@@ -1,0 +1,27 @@
+.container{
+    margin-left: 300px;
+    width: 700px;
+    min-height: 500px;
+    background-color: rgb(21, 173, 173);
+}
+.container .Form_input{
+    margin-left: 30px;
+    margin-top: 10px;
+}
+#save{
+    margin-top: 20px;
+    margin-left: 20px;
+    background: white;
+    color: red;
+}
+#show{
+     background: white;
+     color: red;
+}
+#reset{
+    background: white;
+    color: red;
+}
+#table{
+ background-color: aqua;
+}
