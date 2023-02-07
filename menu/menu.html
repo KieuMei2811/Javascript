@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/menu/css.css">
+    <title>Menu</title>
+</head>
+<body>
+    <form>
+        <h3>MENU</h3>
+        <p>Hãy Ghé Vào Đây </p> 
+        <p>Quý Khách Vui Lòng Chọn:</p>
+        Nước Ngọt:
+        <select id="sweet_drink"> </br> </br>
+            <option value="nuocsuoi">Stream Drink</option>
+            <option value="nuoccam">Orange Drink</option>
+            <option value="sting">Sting Drink</option>
+            <option value="pepsi">Pepsi Drink</option>
+            <option value="coca">CoCa Drink</option>
+            <option value="7up">7Up Drink</option>
+        </select>
+        Trái Cây:
+        <select id="fruit"> Trái Cây </br> </br>
+            <option value="grape">Grape</option>
+            <option value="orange">Orange</option>
+            <option value="grapefruit">Grapefruit</option>
+            <option value="coconut">Coconut</option>
+        </select>
+        </br> </br>
+        Số Tiền: 
+        <input type="number" id="money">  </br> </br>
+        <input type="button" onclick="functionOK()" value="Thanh Toán"> </br> </br>
+        <p id="kq"></p></br></br>
+    </form>
+    <script>
+       function functionOK(){
+    var nuoc=document.getElementById("water");
+    var giatriNuoc=nuoc.options[nuoc.selectedIndex].text;
+    var traicay=document.getElementById("traicay");
+    var giatriTraicay=traicay.options[traicay.selectedIndex].text;
+    var sotien = document.getElementById("money").value;
+    var tralai;
+    
+        switch (giatriNuoc) {
+            case "Không":
+                tralai=sotien;
+                break;
+            case "Nước suối":
+                tralai=sotien-15000;
+                break;
+            case "Coca cola":
+                tralai=sotien-17000;
+                break;
+            case "7 up":
+                tralai=sotien-17000;
+                break;
+            case "Pessi":
+                tralai=sotien-17000;
+                break;
+
+            case "Cam ép":
+                tralai=sotien-17000;
+                break;
+            case "Sting":
+                tralai=sotien-17000;
+                break;
+            case "Bò húc":
+                tralai=sotien-20000;
+                break;
+        }
+        
+        switch (giatriTraicay) {
+            case "Không":
+                tralai=tralai;
+                break;
+            case "Trái cây nhỏ":
+                tralai=tralai - 99000;
+                break;
+            case "Trái cây lớn":
+                tralai=tralai-129000;
+                break;
+            case "Bưởi":
+                tralai=tralai-189000;
+                break;
+        
+    }
+    if (tralai<0){
+        document.getElementById("ketqua").innerHTML="Bạn không đủ tiền, vui lòng nạp thêm tiền để sử dụng dịch vụ của chúng tôi";
+
+    }
+    else if (giatriNuoc == "Không" && giatriTraicay!="Không"){
+        document.getElementById("ketqua").innerHTML="Mời bạn xơi " + giatriTraicay;
+        document.getElementById("tiendu").innerHTML="Số tiền còn lại là: " + tralai;}
+
+    else if (giatriTraicay == "Không" && giatriNuoc!="Không"){
+        document.getElementById("ketqua").innerHTML="Mời bạn xơi " + giatriNuoc;
+        document.getElementById("tiendu").innerHTML="Số tiền còn lại là: " + tralai;
+    }
+    else if (giatriNuoc == "Không" && giatriTraicay == "Không") {
+        document.getElementById("ketqua").innerHTML="Bạn chưa mua gì";
+        document.getElementById("tiendu").innerHTML="Số tiền còn lại là: " + tralai;
+    }
+    else{
+        document.getElementById("ketqua").innerHTML="Mời bạn xơi " + giatriNuoc + " và " + giatriTraicay;
+        document.getElementById("tiendu").innerHTML="Số tiền còn lại là: " + tralai;
+    }
+}
+
+function functionCancle (){
+    document.getElementById("ketqua").innerHTML="";
+    document.getElementById("tiendu").innerHTML="";
+    document.getElementById("water").value="Không";
+    document.getElementById("traicay").value="Không";
+    document.getElementById("money").value="0";
+
+
+}
+    </script>
+</body>
+</html>
